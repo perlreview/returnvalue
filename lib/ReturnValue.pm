@@ -13,32 +13,151 @@ $VERSION = '0.10_01';
 
 =head1 NAME
 
-ReturnValue - 
+ReturnValue - A structured return value for failure or success
 
 =head1 SYNOPSIS
 
 	use ReturnValue;
 
+
+	sub do_something {
+		...;
+		
+		return ResultValue->error(
+			value       => 'Any value',
+			description => 'Some longer description',
+			tag         => 'short_value'
+			) if $failed;
+			
+		return ResultValue->success(
+			value       => 'Any value',
+			description => 'Some longer description',
+			tag         => 'short_value'
+			) if $failed;
+		}
+
+
+	my $result = do_something();
+	if( $result->is_error ) {
+		...; # do error stuff
+		}
+
+	my $result = do_something_else();
+	for( $result->tag ) {
+		when( 'tag1' ) { ... }	
+		when( 'tag2' ) { ... }	
+	
+		}
+
 =head1 DESCRIPTION
+
+The C<ReturnValue> class provides a very simple wrapper around a value
+so you can tell if it's a success or failure without taking pains to
+examine the particular value.
+
+This isn't particularly interesting for success values, but can be
+helpful with multiple ways to describe an error.
 
 =over 4
 
-=item new
-
 =cut
 
-sub new
-	{
+sub _new {
+	state $allowed = {
+		value       => 'required',
+		description => 0,
+		tag         => 0,
+		};
+
+	my( $class, %hash ) = @_;
+	foreach my $key ( keys %hash ) {
+		next if exists $allowed->{$key};
+		delete $allowed->{$key};
+		}
+
+	foreach my $key ( keys %$allowed ) {
+		next unless $allowed->{$key};
+		next if defined $hash{$key};
+		carp ""
+		}
 	
+	bless \%hash, $class;
 	}
 	
-=item init
+=item success
+
+Create a success object
+
+=item error
+
+Create an error object
 
 =cut
 
-sub init
-	{
+sub success {
+	$_[0]->success_type->_new( @_ );
+	}
 	
+sub error {
+	$_[0]->error_type->_new( @_ );
+	}
+
+=item value
+
+The value that you'd normally return. This class doesn't care what it
+is. It can be a number, string, or reference. It's up to your application
+to figure out how you want to do that.
+
+=item description
+
+A long description of the return values, 
+
+=item tag
+
+A short tag suitable for switching on in a C<given>, or something
+similar.
+
+=cut
+
+sub value       { $_[0]->{value} }
+sub description { $_[0]->{description} }
+sub tag         { $_[0]->{tag} }
+
+=item success_type
+
+Returns the class for success objects
+
+=item error_type
+
+Returns the class for error objects
+
+=cut
+
+sub error_type   { 'ReturnValue::Error' }
+sub success_type { 'ReturnValue::Success' }
+
+=item is_success
+
+Returns true is the result represents a success
+
+=item is_error
+
+Returns true is the result represents a success
+
+=cut
+
+package ReturnValue::Success {
+	use parent qw(ReturnValue);
+	
+	sub is_error   { 0 }
+	sub is_success { 1 }
+	}
+	
+package ReturnValue::Error {
+	use parent qw(ReturnValue);
+
+	sub is_error   { 1 }
+	sub is_success { 0 }
 	}
 
 =back
@@ -57,7 +176,7 @@ This source is in Github:
 
 =head1 AUTHOR
 
-, C<< <> >>
+brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
