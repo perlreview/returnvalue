@@ -1,11 +1,14 @@
 package ReturnValue;
 use strict;
+use v5.14;
 
 use warnings;
 no warnings;
 
 use subs qw();
 use vars qw($VERSION);
+
+use Carp;
 
 $VERSION = '0.10_01';
 
@@ -23,14 +26,14 @@ ReturnValue - A structured return value for failure or success
 	sub do_something {
 		...;
 		
-		return ResultValue->error(
-			value       => 'Any value',
+		return ReturnValue->error(
+			value       => $your_usual_error_value,
 			description => 'Some longer description',
 			tag         => 'short_value'
 			) if $failed;
 			
-		return ResultValue->success(
-			value       => 'Any value',
+		return ReturnValue->success(
+			value       => $your_usual_return_value,
 			description => 'Some longer description',
 			tag         => 'short_value'
 			) if $failed;
@@ -53,7 +56,9 @@ ReturnValue - A structured return value for failure or success
 
 The C<ReturnValue> class provides a very simple wrapper around a value
 so you can tell if it's a success or failure without taking pains to
-examine the particular value.
+examine the particular value. Instead of using exceptions, you inspect
+the class of the object you get back. Errors and successes flow through
+the same path.
 
 This isn't particularly interesting for success values, but can be
 helpful with multiple ways to describe an error.
@@ -179,7 +184,6 @@ This source is in Github:
 brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
-
 
 Copyright (c) 2013, brian d foy, All Rights Reserved.
 
