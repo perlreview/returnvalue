@@ -100,11 +100,13 @@ Create an error object
 =cut
 
 sub success {
-	$_[0]->success_type->_new( @_ );
+	my $self = shift;
+	$self->success_type->_new( @_ );
 	}
 	
 sub error {
-	$_[0]->error_type->_new( @_ );
+	my $self = shift;
+	$self->error_type->_new( @_ );
 	}
 
 =item value
