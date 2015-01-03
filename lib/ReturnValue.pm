@@ -68,22 +68,23 @@ helpful with multiple ways to describe an error.
 =cut
 
 sub _new {
-	state $allowed = {
+	my $allowed = {
 		value       => 'required',
 		description => 0,
 		tag         => 0,
 		};
 
 	my( $class, %hash ) = @_;
-	foreach my $key ( keys %hash ) {
-		next if exists $allowed->{$key};
-		delete $allowed->{$key};
-		}
 
+	delete $allowed->{$_} for keys %hash;
+
+	# these are the keys that are left over after the
+	# last foreach. These are a problem if they are
+	# requires
 	foreach my $key ( keys %$allowed ) {
 		next unless $allowed->{$key};
-		next if defined $hash{$key};
-		carp ""
+		carp "required key [$key] is missing";
+		return;
 		}
 	
 	bless \%hash, $class;
