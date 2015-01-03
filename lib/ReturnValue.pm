@@ -25,13 +25,13 @@ ReturnValue - A structured return value for failure or success
 
 	sub do_something {
 		...;
-		
+
 		return ReturnValue->error(
 			value       => $your_usual_error_value,
 			description => 'Some longer description',
 			tag         => 'short_value'
 			) if $failed;
-			
+
 		return ReturnValue->success(
 			value       => $your_usual_return_value,
 			description => 'Some longer description',
@@ -47,9 +47,9 @@ ReturnValue - A structured return value for failure or success
 
 	my $result = do_something_else();
 	for( $result->tag ) {
-		when( 'tag1' ) { ... }	
-		when( 'tag2' ) { ... }	
-	
+		when( 'tag1' ) { ... }
+		when( 'tag2' ) { ... }
+
 		}
 
 =head1 DESCRIPTION
@@ -86,10 +86,10 @@ sub _new {
 		carp "required key [$key] is missing";
 		return;
 		}
-	
+
 	bless \%hash, $class;
 	}
-	
+
 =item success
 
 Create a success object
@@ -104,7 +104,7 @@ sub success {
 	my $self = shift;
 	$self->success_type->_new( @_ );
 	}
-	
+
 sub error {
 	my $self = shift;
 	$self->error_type->_new( @_ );
@@ -118,7 +118,7 @@ to figure out how you want to do that.
 
 =item description
 
-A long description of the return values, 
+A long description of the return values,
 
 =item tag
 
@@ -156,11 +156,11 @@ Returns true is the result represents a success
 
 package ReturnValue::Success {
 	use parent qw(ReturnValue);
-	
+
 	sub is_error   { 0 }
 	sub is_success { 1 }
 	}
-	
+
 package ReturnValue::Error {
 	use parent qw(ReturnValue);
 
