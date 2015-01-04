@@ -1,4 +1,4 @@
-# Changes to ReturnValue
+Revision history for Perl module ReturnValue
 
 0.10_01 - Thu Oct  3 16:27:48 2013
 	* Initial release of a module to do structured return values
