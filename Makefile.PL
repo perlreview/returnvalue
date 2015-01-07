@@ -1,5 +1,5 @@
 #!perl
-use v5.014;
+use v5.14;
 use utf8;
 
 package ReturnValue;
@@ -11,7 +11,6 @@ my $github    = 'https://github.com/briandfoy/ReturnValue';
 my $main_file = 'lib/ReturnValue.pm';
 
 my %WriteMakefile = (
-
 	'NAME'	        => 'ReturnValue',
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
