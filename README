@@ -1,25 +1,85 @@
-You can install this using in the usual Perl fashion
+=pod
 
-	perl Makefile.PL
-	make
-	make test
-	make install
+=encoding utf8
+
+=head1 The ReturnValue module
+
+This is the I<README> for the L<ReturnValue> Perl module. You're probably 
+looking at this because you don't know where else to find what you're
+looking for.
+
+=head2 Documentation
+
+To read about the L<ReturnValue>, look at the embedded documentation 
+in the module itself. You can read it with L<perldoc>:
+
+	% perldoc lib/ReturnValue.pm
+
+You can read the documentation and inspect the meta data on one of the 
+CPAN web interfaces:
+
+	http://search.cpan.org/dist/ReturnValue
+	http://www.metacpan.org/module/ReturnValue
+
+=head2 Installation
+
+You can install this module with a CPAN client, which will resolve
+and install the dependencies:
+
+	% cpan ReturnValue
+	% cpanm ReturnValue
+
+You can also install directly from the distribution directory, which
+will also install the dependencies:
+
+	% cpan .
+	% cpanm .
+
+You could install just this module manually:
+
+	% perl Makefile.PL
+	% make
+	% make test
+	% make install
+
+You probably don't want to do that unless you're fiddling with the 
+module and only want to run the tests without installing anything.
+
+=head2 Source location
 	
-The documentation is in the module file.  Once you install
-the file, you can read it with perldoc.
+The meta data, such as the source repository and bug tracker, is in
+I<Makefile.PL> or the I<META.*> files it creates. You can find that on
+those CPAN web interfaces, but you can also look at:
 
-	perldoc ReturnValue
-	
-If you want to read it before you install it, you can use
-perldoc directly on the module file.
+	https://github.com/briandfoy/ReturnValue
 
-	perldoc  lib/
-	
-This module is also in Github:
+If you find a problem, file a ticket in the L<issue tracker|https://github.com/briandfoy/ReturnValue/issues>:
 
-	http://github.com/briandfoy/
+	https://github.com/briandfoy/ReturnValue/issues
 
+=head2 Getting help
+
+Although I'm happy to hear from module authors in private email,
+that's the best way for me to forget to do something.
+
+Besides the issue trackers, you can find help at L<Perlmonks|http://www.perlmonks.org> or
+L<Stackoverflow|http://www.stackoverflow.com>, both of which have many competent Perlers who
+can answer your question, almost in real time. They might not know
+the particulars of this module, but they can help you diagnose your 
+problem. 
+
+You might like to read L<|>
+
+=head2 Copyright and License
+
+You should have received a L<LICENSE> file, but the license is also noted
+in the module files. About the only thing you can't do is pretend that
+you wrote code that you didn't. 
+
+=head2 Good luck!
 
 Enjoy, 
 
 brian d foy, bdfoy@cpan.org
+
+=cut
