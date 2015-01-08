@@ -6,12 +6,14 @@ package ReturnValue;
 use strict;
 use warnings;
 
+use File::Spec::Functions qw(catfile);
 
+my $module    = 'ReturnValue';
 my $github    = 'https://github.com/briandfoy/ReturnValue';
-my $main_file = 'lib/ReturnValue.pm';
+my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
 my %WriteMakefile = (
-	'NAME'	        => 'ReturnValue',
+	'NAME'	        => $module,
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'       => 'perl',
