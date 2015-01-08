@@ -6,20 +6,30 @@
 
 This is the I<README> for the L<ReturnValue> Perl module. You're probably 
 looking at this because you don't know where else to find what you're
-looking for.
+looking for. Read this once and you might never have to read one again 
+for any Perl module.
 
 =head2 Documentation
 
 To read about the L<ReturnValue>, look at the embedded documentation 
-in the module itself. You can read it with L<perldoc>:
+in the module itself. Inside the distribution, you can read it with L<perldoc>:
 
 	% perldoc lib/ReturnValue.pm
+
+If you have already installed the module, you can specify the module
+name:
+
+	% perldoc ReturnValue
 
 You can read the documentation and inspect the meta data on one of the 
 CPAN web interfaces:
 
 	http://search.cpan.org/dist/ReturnValue
 	http://www.metacpan.org/module/ReturnValue
+
+The standard module documentation has example uses in the SYNOPSIS
+section, but you can also look in the I<examples/> directory (if it's
+there), or look at the test files in <t/>.
 
 =head2 Installation
 
@@ -62,13 +72,15 @@ If you find a problem, file a ticket in the L<issue tracker|https://github.com/b
 Although I'm happy to hear from module authors in private email,
 that's the best way for me to forget to do something.
 
-Besides the issue trackers, you can find help at L<Perlmonks|http://www.perlmonks.org> or
-L<Stackoverflow|http://www.stackoverflow.com>, both of which have many competent Perlers who
-can answer your question, almost in real time. They might not know
-the particulars of this module, but they can help you diagnose your 
-problem. 
+Besides the issue trackers, you can find help at
+L<Perlmonks|http://www.perlmonks.org> or
+L<Stackoverflow|http://www.stackoverflow.com>, both of which have many
+competent Perlers who can answer your question, almost in real time.
+They might not know the particulars of this module, but they can help
+you diagnose your problem. 
 
-You might like to read L<|>
+You might like to read L<brian's Guide to Solving Any Perl 
+Problem|http://archive.oreilly.com/pub/a/perl/excerpts/9780596527242/brians-guide.html>
 
 =head2 Copyright and License
 
