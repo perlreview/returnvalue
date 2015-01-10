@@ -7,7 +7,7 @@ use warnings;
 
 use File::Spec::Functions qw(catfile);
 
-my $module    = 'ReturnValue';
+my $module    = __PACKAGE__;
 ( my $dist = $module ) =~ s/::/-/g;
 
 my $github    = 'https://github.com/briandfoy/ReturnValue';
