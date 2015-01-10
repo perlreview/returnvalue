@@ -1,4 +1,3 @@
-#!perl
 use v5.14;
 use utf8;
 
@@ -51,7 +50,7 @@ my %WriteMakefile = (
 			},
 		},
 
-	clean  => { FILES => q|ReturnValue-*| },
+	clean => { FILES => "$dist-*" },
 	);
 
 sub arguments { \%WriteMakefile }
