@@ -9,11 +9,6 @@ looking at this because you don't know where else to find what you're
 looking for. Read this once and you might never have to read one again 
 for any Perl module.
 
-This module came out of an answer to L<Is Try::Tiny still recommended 
-for exception handling in Perl 5.14 or later?|http://stackoverflow.com/a/10374265/2766176>
-which I expanded from L<Return error objects instead of throwing exceptions|http://www.effectiveperlprogramming.com/2011/10/return-error-objects-instead-of-throwing-exceptions/>
-from L<The Effective Perler| http://www.effectiveperlprogramming.com/>.
-
 =head2 Documentation
 
 To read about L<ReturnValue>, look at the embedded documentation 
@@ -33,7 +28,7 @@ L<MetaCPAN|http://www.metacpan.org/module/ReturnValue>:
 
 =over 4
 
-=item *	L<http://search.cpan.org/>
+=item *	L<http://search.cpan.org/dist/ReturnValue>
 
 =item *	L<http://www.metacpan.org/module/ReturnValue>
 
