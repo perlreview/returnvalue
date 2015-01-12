@@ -7,6 +7,7 @@ no warnings;
 
 use subs qw();
 use vars qw($VERSION);
+use parent qw(Hash::AsObject);
 
 use Carp;
 

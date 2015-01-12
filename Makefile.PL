@@ -32,6 +32,7 @@ my %WriteMakefile = (
 		},
 
 	'PREREQ_PM'     => {
+		'Hash::AsObject' => '0',
 		},
 
 	'META_MERGE' => {
