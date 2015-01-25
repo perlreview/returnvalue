@@ -102,12 +102,12 @@ Create an error object
 =cut
 
 sub success {
-	my $self = shift;
+	my( $self ) = shift;
 	$self->success_type->_new( @_ );
 	}
 
 sub error {
-	my $self = shift;
+	my( $self ) = shift;
 	$self->error_type->_new( @_ );
 	}
 
