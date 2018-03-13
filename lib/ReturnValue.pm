@@ -11,7 +11,7 @@ use parent qw(Hash::AsObject);
 
 use Carp;
 
-$VERSION = '0.10_01';
+$VERSION = '0.111';
 
 =encoding utf8
 
@@ -185,11 +185,11 @@ This source is in Github:
 
 =head1 AUTHOR
 
-brian d foy, C<< <bdfoy@cpan.org> >>
+brian d foy, <bdfoy@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright © 2013-2015, brian d foy <bdfoy@cpan.org>. All rights reserved.
+Copyright © 2013-2018, brian d foy <bdfoy@cpan.org>. All rights reserved.
 
 You may redistribute this under the same terms as Perl itself.
 
