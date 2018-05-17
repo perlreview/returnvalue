@@ -5,13 +5,11 @@ use v5.14;
 use warnings;
 no warnings;
 
-use subs qw();
-use vars qw($VERSION);
 use parent qw(Hash::AsObject);
 
 use Carp;
 
-$VERSION = '0.111';
+our $VERSION = '0.112';
 
 =encoding utf8
 
