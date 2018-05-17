@@ -2,6 +2,16 @@
 
 =encoding utf8
 
+=for HTML <a href="https://travis-ci.org/briandfoy/returnvalue"><img src="https://travis-ci.org/briandfoy/returnvalue.svg?branch=master" /></a>
+
+=for HTML <a href='https://ci.appveyor.com/project/briandfoy/returnvalue'><img src='https://ci.appveyor.com/api/projects/status/u29cjg7a4ypl8n3i' /></a>
+
+=for HTML <a href='https://coveralls.io/github/briandfoy/returnvalue?branch=master'><img src='https://coveralls.io/repos/github/briandfoy/returnvalue/badge.svg?branch=master' alt='Coverage Status' /></a>
+
+=for HTML <a href="https://github.com/briandfoy/returnvalue/blob/master/LICENSE"><img src="https://img.shields.io/cpan/l/ReturnValue.svg" /></a>
+
+=for HTML <a href="http://www.metacpan.org/module/ReturnValue"><img src="https://img.shields.io/cpan/v/ReturnValue.svg" /></A>
+
 =head1 The ReturnValue module
 
 This is the I<README> for the L<ReturnValue> Perl module. You're probably 
