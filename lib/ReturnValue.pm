@@ -21,7 +21,6 @@ ReturnValue - A structured return value for failure or success
 
 	use ReturnValue;
 
-
 	sub do_something {
 		...;
 
@@ -35,7 +34,7 @@ ReturnValue - A structured return value for failure or success
 			value       => $your_usual_return_value,
 			description => 'Some longer description',
 			tag         => 'short_value'
-			) if $failed;
+			) unless $failed;
 		}
 
 
