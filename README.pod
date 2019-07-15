@@ -81,7 +81,7 @@ tracker|https://github.com/perlreview/returnvalue/issues>:
 
 =over 4
 
-=item *	L<https://github.com/briandfoy/returnvalue/issues>
+=item *	L<https://github.com/perlreview/returnvalue/issues>
 
 =back
 
