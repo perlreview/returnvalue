@@ -178,7 +178,7 @@ package ReturnValue::Error {
 
 This source is in Github:
 
-	http://github.com/briandfoy/returnvalue/
+	http://github.com/perlreview/returnvalue/
 
 =head1 AUTHOR
 
