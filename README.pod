@@ -14,7 +14,7 @@
 
 =head1 The ReturnValue module
 
-This is the I<README> for the L<ReturnValue> Perl module. You're probably
+This is the F<README> for the L<ReturnValue> Perl module. You're probably
 looking at this because you don't know where else to find what you're
 looking for. Read this once and you might never have to read one again
 for any Perl module.
@@ -36,8 +36,8 @@ You can read the documentation and inspect the meta data at
 L<MetaCPAN|https://metacpan.org/pod/ReturnValue>.
 
 The standard module documentation has example uses in the SYNOPSIS
-section, but you can also look in the I<examples/> directory (if it's
-there), or look at the test files in I<t/>.
+section, but you can also look in the F<examples/> directory (if it's
+there), or look at the test files in F<t/>.
 
 =head2 Installation
 
@@ -66,7 +66,7 @@ module and only want to run the tests without installing anything.
 =head2 Source location
 
 The meta data, such as the source repository and bug tracker, is in
-I<Makefile.PL> or the I<META.*> files it creates. You can find that on
+F<Makefile.PL> or the I<META.*> files it creates. You can find that on
 those CPAN web interfaces, but you can also look at files directly in
 the source repository:
 
@@ -102,7 +102,7 @@ Problem|http://archive.oreilly.com/pub/a/perl/excerpts/9780596527242/brians-guid
 
 =head2 Copyright and License
 
-You should have received a I<LICENSE> file, but the license is also noted
+You should have received a F<LICENSE> file, but the license is also noted
 in the module files. About the only thing you can't do is pretend that
 you wrote code that you didn't.
 
