@@ -2,13 +2,13 @@
 
 =encoding utf8
 
-=for HTML <a href="https://travis-ci.org/briandfoy/returnvalue"><img src="https://travis-ci.org/briandfoy/returnvalue.svg?branch=master" /></a>
+=for HTML <a href="https://travis-ci.org/perlreview/returnvalue"><img src="https://travis-ci.org/perlreview/returnvalue.svg?branch=master" /></a>
 
-=for HTML <a href='https://ci.appveyor.com/project/briandfoy/returnvalue'><img src='https://ci.appveyor.com/api/projects/status/u29cjg7a4ypl8n3i' /></a>
+=for HTML <a href='https://ci.appveyor.com/project/perlreview/returnvalue'><img src='https://ci.appveyor.com/api/projects/status/95l4kfg5aciiyq2a?svg=true' /></a>
 
-=for HTML <a href='https://coveralls.io/github/briandfoy/returnvalue?branch=master'><img src='https://coveralls.io/repos/github/briandfoy/returnvalue/badge.svg?branch=master' alt='Coverage Status' /></a>
+=for HTML <a href='https://coveralls.io/github/perlreview/returnvalue?branch=master'><img src='https://coveralls.io/repos/github/perlreview/returnvalue/badge.svg?branch=master' alt='Coverage Status' /></a>
 
-=for HTML <a href="https://github.com/briandfoy/returnvalue/blob/master/LICENSE"><img src="https://img.shields.io/cpan/l/ReturnValue.svg" /></a>
+=for HTML <a href="https://github.com/perlreview/returnvalue/blob/master/LICENSE"><img src="https://img.shields.io/cpan/l/ReturnValue.svg" /></a>
 
 =for HTML <a href="https://metacpan.org/pod/ReturnValue"><img src="https://img.shields.io/cpan/v/ReturnValue.svg" /></A>
 
@@ -72,12 +72,12 @@ the source repository:
 
 =over 4
 
-=item *	L<https://github.com/briandfoy/returnvalue>
+=item *	L<https://github.com/perlreview/returnvalue>
 
 =back
 
 If you find a problem, file a ticket in the L<issue
-tracker|https://github.com/briandfoy/returnvalue/issues>:
+tracker|https://github.com/perlreview/returnvalue/issues>:
 
 =over 4
 
