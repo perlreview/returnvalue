@@ -32,3 +32,6 @@ nytprof.out
 pm_to_blib
 .config/.terraform
 *.icould
+MANIFEST*[123456789]
+Changes*[123456789]
+
