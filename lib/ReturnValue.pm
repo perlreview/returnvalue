@@ -148,7 +148,7 @@ Returns true is the result represents a success
 
 =item is_error
 
-Returns true is the result represents a success
+Returns true is the result represents an error
 
 =cut
 
