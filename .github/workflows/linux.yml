@@ -1,4 +1,5 @@
 # brian's standard GitHub Actions Ubuntu config for Perl 5 modules
+# version 20220120.001
 # https://github.com/briandfoy/github_actions
 # https://github.com/features/actions
 # This file is licensed under the Artistic License 2.0
@@ -70,8 +71,8 @@ jobs:
             - name: Install cpanm and multiple modules
               run: |
                 curl -L https://cpanmin.us | perl - App::cpanminus
-                cpanm --notest IO::Socket::SSL App::Cpan ExtUtils::MakeMaker HTTP::Tiny
-                cpan -M https://www.cpan.org -T ExtUtils::MakeMaker
+                cpanm --notest IO::Socket::SSL App::Cpan HTTP::Tiny
+                cpan -M https://www.cpan.org -T ExtUtils::MakeMaker Test::Manifest
 # Install the dependencies, again not testing them. This installs the
 # module in the current directory, so we end up installing the module,
 # but that's not a big deal.
@@ -100,6 +101,7 @@ jobs:
               run: |
                 perl Makefile.PL
                 make disttest
+                make clean
 # And, coverage reports, but only under 5.10 and later since modern
 # Devel::Cover instances don't work with 5.8
             - name: Run coverage tests
@@ -108,4 +110,5 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                 cpan -M https://www.cpan.org -T Devel::Cover Devel::Cover::Report::Coveralls
+                perl Makefile.PL
                 cover -test -report coveralls
