@@ -24,6 +24,31 @@ jobs:
             image: perl:${{ matrix.perl-version }}
         steps:
             - uses: actions/checkout@v2
+            - name: Perl version check
+              run: |
+                perl -V
+                perl -v | perl -0777 -ne 'm/(v5\.\d+)/ && print "PERL_VERSION=$1"' >> $GITHUB_ENV
+# Some older versions of Perl have trouble with hostnames in certs. I
+# haven't figured out why.
+            - name: Setup environment
+              run: |
+                echo "PERL_LWP_SSL_VERIFY_HOSTNAME=0" >> $GITHUB_ENV
+# I had some problems with openssl on Ubuntu, so I punted by installing
+# cpanm first, which is easy. I can install IO::Socket::SSL with that,
+# then switch back to cpan. I didn't explore this further, but what you
+# see here hasn't caused problems for me.
+# Need HTTP::Tiny 0.055 or later.
+            - name: Install cpanm and multiple modules
+              run: |
+                curl -L https://cpanmin.us | perl - App::cpanminus
+                cpanm --notest IO::Socket::SSL App::Cpan HTTP::Tiny
+                cpan -M https://www.cpan.org -T ExtUtils::MakeMaker Test::Manifest
+# Install the dependencies, again not testing them. This installs the
+# module in the current directory, so we end up installing the module,
+# but that's not a big deal.
+            - name: Install dependencies
+              run: |
+                cpan -M https://www.cpan.org -T .
             - name: Create distro
               run: |
                 perl Makefile.PL
