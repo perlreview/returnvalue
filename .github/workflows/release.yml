@@ -1,0 +1,54 @@
+# brian's standard GitHub Actions Ubuntu config for Perl 5 modules
+# version 20220120.001
+# https://github.com/briandfoy/github_actions
+# https://github.com/features/actions
+# This file is licensed under the Artistic License 2.0
+name: release
+
+on:
+    push:
+        branches:
+            - 'master'
+        tags:
+            - '*'
+jobs:
+    perl:
+        runs-on: ${{ matrix.os }}
+        strategy:
+          matrix:
+            os:
+                - ubuntu-20.04
+            perl-version:
+                - 'latest'
+        container:
+            image: perl:${{ matrix.perl-version }}
+        steps:
+            - uses: actions/checkout@v2
+            - name: Create distro
+              run: |
+                perl Makefile.PL
+                make disttest
+                make dist 2>/dev/null | grep Created | awk '{ print "ASSET_NAME=" $2 }' >> $GITHUB_ENV
+            - name: version
+              run: echo "::set-output name=version::$(perl -le 'print $ARGV[0] =~ m/-(.*?).tar.gz/' *.tar.gz)"
+              id: version
+            - name: release
+              uses: actions/create-release@v1
+              id: create_release
+              env:
+                GITHUB_TOKEN: ${{ github.token }}
+              with:
+                draft: false
+                prerelease: false
+                release_name: ${{ steps.version.outputs.version }}
+                tag_name: ${{ github.ref }}
+                body_path: CHANGES
+            - name: upload
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ github.token }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: ${{ env.ASSET_NAME }}
+                asset_name: ${{ env.ASSET_NAME }}
+                asset_content_type: application/gzip
