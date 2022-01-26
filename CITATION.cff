@@ -15,4 +15,4 @@ repository-code: https://github.com/perlreview/returnvalue
 title: The ReturnValue Perl module
 type: software
 version: '0.902'
-
+doi: 10.5281/zenodo.5904392

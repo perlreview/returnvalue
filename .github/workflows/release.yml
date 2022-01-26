@@ -1,5 +1,5 @@
-# brian's standard GitHub Actions Ubuntu config for Perl 5 modules
-# version 20220120.001
+# brian's standard GitHub Actions release config for Perl 5 modules
+# version 20220125.002
 # https://github.com/briandfoy/github_actions
 # https://github.com/features/actions
 # This file is licensed under the Artistic License 2.0
@@ -7,10 +7,8 @@ name: release
 
 on:
     push:
-        branches:
-            - 'master'
         tags:
-            - '*'
+            - 'release-*'
 jobs:
     perl:
         runs-on: ${{ matrix.os }}
@@ -24,10 +22,6 @@ jobs:
             image: perl:${{ matrix.perl-version }}
         steps:
             - uses: actions/checkout@v2
-            - name: Perl version check
-              run: |
-                perl -V
-                perl -v | perl -0777 -ne 'm/(v5\.\d+)/ && print "PERL_VERSION=$1"' >> $GITHUB_ENV
 # Some older versions of Perl have trouble with hostnames in certs. I
 # haven't figured out why.
             - name: Setup environment
@@ -67,7 +61,7 @@ jobs:
                 prerelease: false
                 release_name: ${{ steps.version.outputs.version }}
                 tag_name: ${{ github.ref }}
-                body_path: CHANGES
+                body_path: Changes
             - name: upload
               uses: actions/upload-release-asset@v1
               env:
